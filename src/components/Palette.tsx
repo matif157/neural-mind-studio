@@ -1,12 +1,13 @@
 import { memo } from 'react';
-import { Activity, Brain, CircleDot, Heart, Lightbulb, Plus, Sparkles, Zap, GitBranch, ArrowUpRight } from 'lucide-react';
+import { Activity, Brain, CircleDot, Heart, Lightbulb, Plus, Sparkles, Zap, GitBranch, ArrowUpRight, Star, Target, Shield, Handshake, UserCircle, Users, Box } from 'lucide-react';
 import { NODE_META, type MindNodeKind } from '../types/mind';
 import { scenarios } from '../data/scenarios';
 import { useMindStore } from '../store/mindStore';
 
-const nodeIcons = {
+const nodeIcons: Record<string, any> = {
   emotion: Heart, thought: Lightbulb, memory: Brain, pattern: GitBranch,
   need: Sparkles, body: Activity, behavior: ArrowUpRight, trigger: Zap, belief: CircleDot, context: CircleDot,
+  value: Star, goal: Target, strength: Shield, coping: Handshake, identity: UserCircle, relationship: Users, concept: Box,
 };
 
 interface PaletteProps {

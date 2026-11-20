@@ -1,13 +1,13 @@
 import { NODE_META, RELATIONS, type MindProjectFile } from '../types/mind';
 
 export function createProjectFile(nodes: MindProjectFile['nodes'], edges: MindProjectFile['edges']): MindProjectFile {
-  return { app: 'neural-mind-studio', schemaVersion: 1, exportedAt: new Date().toISOString(), nodes, edges };
+  return { app: 'neural-mind-studio', schemaVersion: 2, exportedAt: new Date().toISOString(), nodes, edges };
 }
 
 export function validateProjectFile(value: unknown): value is MindProjectFile {
   if (!value || typeof value !== 'object') return false;
   const candidate = value as Record<string, unknown>;
-  if (candidate.app !== 'neural-mind-studio' || candidate.schemaVersion !== 1) return false;
+  if (candidate.app !== 'neural-mind-studio' || (candidate.schemaVersion !== 1 && candidate.schemaVersion !== 2)) return false;
   if (!Array.isArray(candidate.nodes) || !Array.isArray(candidate.edges)) return false;
   const ids = new Set<string>();
   const validKinds = new Set(Object.keys(NODE_META));

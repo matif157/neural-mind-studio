@@ -1,13 +1,14 @@
 import { memo, type CSSProperties } from 'react';
 import { Handle, Position, type NodeProps } from '@xyflow/react';
-import { Activity, Brain, CircleDot, Heart, Lightbulb, Link2, Sparkles } from 'lucide-react';
+import { Activity, Brain, CircleDot, Heart, Lightbulb, Link2, Sparkles, Star, Target, Shield, Handshake, UserCircle, Users, Box } from 'lucide-react';
 import { NODE_META, getMindNodeColor, type MindNode } from '../types/mind';
 import { scenarios } from '../data/scenarios';
 import { useMindStore } from '../store/mindStore';
 
-const glyphs = {
+const glyphs: Record<string, any> = {
   emotion: Heart, thought: Lightbulb, memory: Brain, pattern: Activity,
   need: Sparkles, body: CircleDot, behavior: Link2, trigger: Activity, belief: Brain, context: CircleDot,
+  value: Star, goal: Target, strength: Shield, coping: Handshake, identity: UserCircle, relationship: Users, concept: Box,
 };
 
 function MindNeuronNodeView({ id, data, selected }: NodeProps<MindNode>) {
